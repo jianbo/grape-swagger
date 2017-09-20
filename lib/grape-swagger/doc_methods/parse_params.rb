@@ -48,6 +48,7 @@ module GrapeSwagger
         end
 
         def document_default_value(settings)
+          p "..."
           @parsed_param[:default] = settings[:default] if settings[:default].present?
         end
 
