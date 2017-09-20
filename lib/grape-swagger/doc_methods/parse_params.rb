@@ -48,8 +48,9 @@ module GrapeSwagger
         end
 
         def document_default_value(settings)
-          p "..."
-          @parsed_param[:default] = settings[:default] if settings[:default].present?
+          if settings[:default].present?
+            @parsed_param[:default] = settings[:default].is_a?(Proc) ? settings[:default].call : settings[:default]
+          end
         end
 
         def document_type_and_format(settings, data_type)
